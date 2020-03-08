@@ -20,7 +20,7 @@ if (WIN32 OR WIN64)
     add_definitions( -DBOOST_ALL_DYN_LINK )
 endif()
 
-add_executable(bulk_server main.cpp common.h)
+add_executable(bulk_server main.cpp common.h server.cpp server.h bulk.cpp bulk.h async.h async.cpp)
 
 add_executable(my_tests my_test.cpp common.h)
 
@@ -37,9 +37,19 @@ else()
 		set(CMAKE_BUILD_TYPE Release)
 endif()
 
+set_target_properties(bulk_server PROPERTIES
+    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+)
+
 set_target_properties(my_tests PROPERTIES
     COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+)
+
+target_link_libraries(bulk_server
+    ${Boost_LIBRARIES}
+#    my_aux
 )
 
 

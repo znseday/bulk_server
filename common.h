@@ -1,5 +1,5 @@
-
-
+#ifndef COMMON_H
+#define COMMON_H
 
 // __FUNCSIG__ is for VS, but Qt (mingw) works with __PRETTY_FUNCTION__
 #if ((defined WIN32) || (defined WIN64)) && (defined _MSC_VER)
@@ -11,3 +11,5 @@
 extern bool IsDebugOutput;
 
 #define MY_DEBUG_ONLY(x) { if(IsDebugOutput) {x} }
+
+#endif // COMMON_H
