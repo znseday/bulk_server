@@ -9,7 +9,7 @@ else()
 endif()
 
 #find_package(Threads REQUIRED)
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(Boost COMPONENTS unit_test_framework system REQUIRED)
 
 if (WIN32 OR WIN64)
     # disable autolinking in boost
