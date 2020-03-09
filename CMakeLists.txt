@@ -57,14 +57,14 @@ target_link_libraries(my_tests
         ${CMAKE_THREAD_LIBS_INIT}
 )
 
-target_link_libraries(bulk_server
-    ${Boost_LIBRARIES}
-)
+#target_link_libraries(bulk_server
+#    ${Boost_LIBRARIES}
+#)
 
 
-target_link_libraries(my_tests
-    ${Boost_LIBRARIES}
-)
+#target_link_libraries(my_tests
+#    ${Boost_LIBRARIES}
+#)
 
 install(TARGETS bulk_server RUNTIME DESTINATION bin)
 
