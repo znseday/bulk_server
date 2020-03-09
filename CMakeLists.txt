@@ -28,11 +28,11 @@ add_executable(bulk_server main.cpp common.h server.cpp server.h bulk.cpp bulk.h
 #add_executable(my_tests my_test.cpp common.h)
 
 if(WIN32 OR WIN64)
-	set_target_properties(bulk_server my_tests PROPERTIES
+	set_target_properties(bulk_server  PROPERTIES
 		CXX_STANDARD 17
 		CXX_STANDARD_REQUIRED ON)
 else()
-	set_target_properties(bulk_server my_tests PROPERTIES
+	set_target_properties(bulk_server  PROPERTIES
 		CXX_STANDARD 17
 		CXX_STANDARD_REQUIRED ON
 		COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra")
