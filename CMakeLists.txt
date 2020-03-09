@@ -8,8 +8,11 @@ else()
 	project(bulk_server VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 endif()
 
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 #find_package(Threads REQUIRED)
-find_package(Boost COMPONENTS unit_test_framework system REQUIRED)
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 if (WIN32 OR WIN64)
     # disable autolinking in boost

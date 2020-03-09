@@ -16,14 +16,18 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-8
-            - libboost-all-dev
-            - libboost-test-dev
+            #- libboost-all-dev
       env:
          - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
 before_install:
     - eval "${MATRIX_EVAL}"
      # the idea is taken from https://github.com/travis-ci/travis-ci/issues/1379
     - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 60
+
+install:
+  - pip install --upgrade pip --user
+  - pip install conan --user
+  - conan user
 
 script:
 - cmake .
