@@ -25,7 +25,7 @@ endif()
 
 add_executable(bulk_server main.cpp common.h server.cpp server.h bulk.cpp bulk.h async.h async.cpp)
 
-add_executable(my_tests my_test.cpp common.h)
+#add_executable(my_tests my_test.cpp common.h)
 
 if(WIN32 OR WIN64)
 	set_target_properties(bulk_server my_tests PROPERTIES
@@ -45,10 +45,10 @@ set_target_properties(bulk_server PROPERTIES
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
-set_target_properties(my_tests PROPERTIES
-    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-)
+#set_target_properties(my_tests PROPERTIES
+#    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+#    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+#)
 
 target_link_libraries(bulk_server
     ${Boost_LIBRARIES}
@@ -56,10 +56,10 @@ target_link_libraries(bulk_server
 )
 
 
-target_link_libraries(my_tests
-    ${Boost_LIBRARIES}
+#target_link_libraries(my_tests
+#    ${Boost_LIBRARIES}
 #    my_aux
-)
+#)
 
 install(TARGETS bulk_server RUNTIME DESTINATION bin)
 
@@ -75,6 +75,6 @@ set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 include(CPack)
 
-enable_testing()
+#enable_testing()
 
-add_test(my_tests_ my_tests)
+#add_test(my_tests_ my_tests)
