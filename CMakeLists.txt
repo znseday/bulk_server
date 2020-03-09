@@ -40,12 +40,17 @@ else()
 		set(CMAKE_BUILD_TYPE Release)
 endif()
 
-set_target_properties(bulk_server PROPERTIES
-    #COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-            ${Boost_LIBRARIES}
+#set_target_properties(bulk_server PROPERTIES
+#    #COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+#            ${Boost_LIBRARIES}
+#        ${CMAKE_THREAD_LIBS_INIT}
+#    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+#)
+
+target_link_libraries(bulk_server
+        ${Boost_LIBRARIES}
         ${CMAKE_THREAD_LIBS_INIT}
-    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-)
+        )
 
 #set_target_properties(my_tests PROPERTIES
 #    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
