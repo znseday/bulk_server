@@ -41,7 +41,9 @@ else()
 endif()
 
 set_target_properties(bulk_server PROPERTIES
-    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+    #COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+            ${Boost_LIBRARIES}
+        ${CMAKE_THREAD_LIBS_INIT}
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
