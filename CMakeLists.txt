@@ -59,13 +59,11 @@ set_target_properties(my_tests PROPERTIES
 
 target_link_libraries(bulk_server
     ${Boost_LIBRARIES}
-#    my_aux
 )
 
 
 target_link_libraries(my_tests
     ${Boost_LIBRARIES}
-    my_aux
 )
 
 install(TARGETS bulk_server RUNTIME DESTINATION bin)
