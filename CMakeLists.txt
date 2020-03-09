@@ -52,7 +52,7 @@ target_link_libraries(bulk_server
         ${CMAKE_THREAD_LIBS_INIT}
         )
 
-set_target_properties(my_tests PROPERTIES
+set_target_properties(my_tests
         ${Boost_LIBRARIES}
         ${CMAKE_THREAD_LIBS_INIT}
 )
