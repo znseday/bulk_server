@@ -53,8 +53,8 @@ target_link_libraries(bulk_server
         )
 
 set_target_properties(my_tests PROPERTIES
-    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+        ${Boost_LIBRARIES}
+        ${CMAKE_THREAD_LIBS_INIT}
 )
 
 target_link_libraries(bulk_server
