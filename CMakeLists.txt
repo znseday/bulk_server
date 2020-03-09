@@ -25,14 +25,14 @@ endif()
 
 add_executable(bulk_server main.cpp common.h server.cpp server.h bulk.cpp bulk.h async.h async.cpp)
 
-add_executable(my_tests my_test.cpp common.h)
+#add_executable(my_tests my_test.cpp common.h)
 
 if(WIN32 OR WIN64)
-	set_target_properties(bulk_server my_tests PROPERTIES
+	set_target_properties(bulk_server  PROPERTIES
 		CXX_STANDARD 17
 		CXX_STANDARD_REQUIRED ON)
 else()
-	set_target_properties(bulk_server my_tests PROPERTIES
+	set_target_properties(bulk_server  PROPERTIES
 		CXX_STANDARD 17
 		CXX_STANDARD_REQUIRED ON
 		COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra")
@@ -52,10 +52,10 @@ target_link_libraries(bulk_server
         ${CMAKE_THREAD_LIBS_INIT}
         )
 
-target_link_libraries(my_tests
-        ${Boost_LIBRARIES}
-        ${CMAKE_THREAD_LIBS_INIT}
-)
+#target_link_libraries(my_tests
+#        ${Boost_LIBRARIES}
+#        ${CMAKE_THREAD_LIBS_INIT}
+#)
 
 #target_link_libraries(bulk_server
 #    ${Boost_LIBRARIES}
@@ -80,6 +80,6 @@ set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 include(CPack)
 
-enable_testing()
+#enable_testing()
 
-add_test(my_tests_ my_tests)
+#add_test(my_tests_ my_tests)
